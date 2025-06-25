@@ -128,7 +128,8 @@ defaults:
 ## => Plugins
 ##############################
 plugins:
-  - jekyll-feed
+  - jekyll-email-protect
   - jekyll-paginate
+  - jekyll-target-blank
   - jekyll-sitemap
-  - jemoji
+  - jekyll-feed
