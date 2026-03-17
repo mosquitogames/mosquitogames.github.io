@@ -1,0 +1,22 @@
+name: Refresh copyright year
+
+on:
+  schedule:
+    # 11:43 UTC on Jan 1 = 19:43 GMT+8 on Jan 1
+    - cron: '43 11 1 1 *'
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Empty commit to trigger rebuild
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "chore: trigger copyright year update"
+          git push
